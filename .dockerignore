@@ -1,0 +1,6 @@
+.git
+*.md
+Dockerfile
+README.md
+node_modules
+*.log
