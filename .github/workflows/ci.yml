@@ -22,17 +22,17 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
-          username: "shrujal"
-          password: "Dock@2025"
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
           context: .
           push: true
-          tags: your-dockerhub-username/login-page:latest
+          tags: shrujal/login-page:latest
 
       - name: Deploy to Docker (optional)
         run: |
-          docker pull your-dockerhub-username/login-page:latest
-          docker run -d -p 8080:80 your-dockerhub-username/login-page:latest
+          docker pull shrujal/login-page:latest
+          docker run -d -p 8080:80 shrujal/login-page:latest
